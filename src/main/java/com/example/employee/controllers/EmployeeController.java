@@ -26,7 +26,7 @@ public class EmployeeController {
      */
     @GetMapping("/employee")
     public ModelAndView getAllEmployees(){
-        ModelAndView mv = new ModelAndView();
+        ModelAndView mv = new ModelAndView("employeeView");
 
         ArrayList<Employee> listEmployees = service.getAllEmployees();
 
@@ -41,7 +41,8 @@ public class EmployeeController {
     public ModelAndView createEmployee(@ModelAttribute Employee employee){
         ModelAndView mv = new ModelAndView("employeeView");
 
-        boolean createSuccess = service.createEmployee(employee.getName(), employee.getSector(), employee.isIntern(), employee.getSalary());
+        System.out.println(employee);
+        boolean createSuccess = service.createEmployee(employee.getName(), employee.getSector(), false, employee.getSalary());
         // usar html para checagem de erro ao criar funcionário
 
         ArrayList<Employee> listEmployees = service.getAllEmployees();
