@@ -10,11 +10,27 @@
 <body>
     <h1>Funcionários</h1>
     <form th:action="@{/employee}" method="POST">
-        <input type="text" value="name">
-        <input type="text" value="sector">
-        <input type="number" value="salary">
+        <input type="text" name="name">
+        <input type="text" name="lastName">
+        <input type="text" name="sector">
+        <input type="number" name="salary">
         <input type="submit" value="Cadastrar">
     </form>
+
+    <div th:if="${wasCreated} == false">
+        <h2>Falha ao criar funcionário</h2>
+    </div>
+
+    <h1>Lista de Funcionários</h1>
+    <table>
+        <tr th:each="employee: ${employees}">
+            <td th:text="${employee.id}"></td>
+            <td th:text="${employee.name}"></td>
+            <td th:text="${employee.lastName}"></td>
+            <td th:text="${employee.sector}"></td>
+            <td th:text="${employee.salary}"></td>
+        </tr>
+    </table>
 </body>
 
 </html>

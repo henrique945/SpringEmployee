@@ -21,11 +21,11 @@ public class EmployeeService {
      * Criar um funcionário
      * Retorna se foi um sucesso ou não
      */
-    public boolean createEmployee(String name, String sector, boolean isIntern, double salary){
-        if(name.isEmpty() || sector.isEmpty()){
+    public boolean createEmployee(String name, String lastName, String sector, Double salary){
+        if(name.isEmpty() || lastName.isEmpty() || sector.isEmpty() || salary == 0){
             return false;
         }
-        employeeRepository.createEmployee(name, sector, isIntern, salary);
+        employeeRepository.createEmployee(name, sector, lastName, salary);
         return true;
     }
 

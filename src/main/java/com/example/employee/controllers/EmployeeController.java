@@ -42,12 +42,14 @@ public class EmployeeController {
         ModelAndView mv = new ModelAndView("employeeView");
 
         System.out.println(employee);
-        boolean createSuccess = service.createEmployee(employee.getName(), employee.getSector(), false, employee.getSalary());
+        boolean createSuccess = service.createEmployee(employee.getName(), employee.getLastName(), employee.getSector(), employee.getSalary());
+        
         // usar html para checagem de erro ao criar funcionário
+        mv.addObject("wasCreated", createSuccess);
 
         ArrayList<Employee> listEmployees = service.getAllEmployees();
 
-        mv.addObject("employee", listEmployees);
+        mv.addObject("employees", listEmployees);
         return mv;
     }
 

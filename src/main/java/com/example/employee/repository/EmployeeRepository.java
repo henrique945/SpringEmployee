@@ -18,8 +18,8 @@ public class EmployeeRepository {
     /**
      * Função para criar um funcionário
      */
-    public void createEmployee(String name, String sector, boolean isIntern, double salary){
-        hm.put(hm.size()+1, new Employee(hm.size()+1, name, sector, isIntern, salary));
+    public void createEmployee(String name, String sector, String lastName, Double salary){
+        hm.put(hm.size()+1, new Employee(hm.size()+1, name, sector, lastName, salary));
     }   
 
     /**

@@ -7,17 +7,17 @@ public class Employee {
 
     private int id;
     private String name;
+    private String lastName;
     private String sector;
-    private boolean isIntern;
-    private double salary;
+    private Double salary;
 
     public Employee(){}
 
-    public Employee(int id, String name, String sector, boolean isIntern, double salary){
+    public Employee(int id, String name, String sector, String lastName, Double salary){
         this.id = id;
         this.name = name;
         this.sector = sector;
-        this.isIntern = isIntern;
+        this.lastName = lastName;
         this.salary = salary;
     }
 
@@ -45,25 +45,25 @@ public class Employee {
         this.sector = sector;
     }
 
-    public boolean isIntern() {
-        return isIntern;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setIntern(boolean isIntern) {
-        this.isIntern = isIntern;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public double getSalary() {
+    public Double getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(Double salary) {
         this.salary = salary;
     }
 
     @Override
     public String toString() {
-        return "Employee [id=" + id + ", isIntern=" + isIntern + ", name=" + name + ", salary=" + salary + ", sector="
+        return "Employee [id=" + id + ", lastName=" + lastName + ", name=" + name + ", salary=" + salary + ", sector="
                 + sector + "]";
     }
 }
