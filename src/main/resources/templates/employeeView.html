@@ -9,6 +9,12 @@
 
 <body>
     <h1>Funcionários</h1>
+    <div style="display: flex;">
+        <span style="width: 11.1rem;">Nome</span>
+        <span style="width: 11.1rem;">Sobrenome</span>
+        <span style="width: 11.1rem;">Setor</span>
+        <span style="width: 11.1rem;">Salário</span>
+    </div>
     <form th:action="@{/employee}" method="POST">
         <input type="text" name="name">
         <input type="text" name="lastName">
@@ -24,11 +30,11 @@
     <h1>Lista de Funcionários</h1>
     <table>
         <tr th:each="employee: ${employees}">
-            <td th:text="${employee.id}"></td>
-            <td th:text="${employee.name}"></td>
-            <td th:text="${employee.lastName}"></td>
-            <td th:text="${employee.sector}"></td>
-            <td th:text="${employee.salary}"></td>
+            <td th:text="${employee.id}" style="padding: 0 1rem;"></td>
+            <td th:text="${employee.name}" style="padding: 0 1rem;"></td>
+            <td th:text="${employee.lastName}" style="padding: 0 1rem;"></td>
+            <td th:text="${employee.sector}" style="padding: 0 1rem;"></td>
+            <td th:text="${employee.salary}" style="padding: 0 1rem;"></td>
         </tr>
     </table>
 </body>
