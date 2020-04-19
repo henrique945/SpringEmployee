@@ -1,6 +1,6 @@
 package com.example.employee.controllers;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.example.employee.Models.Employee;
 import com.example.employee.services.EmployeeService;
@@ -28,7 +28,7 @@ public class EmployeeController {
     public ModelAndView getAllEmployees(){
         ModelAndView mv = new ModelAndView("employeeView");
 
-        ArrayList<Employee> listEmployees = service.getAllEmployees();
+        List<Employee> listEmployees = service.getAllEmployees();
 
         mv.addObject("employees", listEmployees);
         return mv;
@@ -47,7 +47,7 @@ public class EmployeeController {
         // usar html para checagem de erro ao criar funcionário
         mv.addObject("wasCreated", createSuccess);
 
-        ArrayList<Employee> listEmployees = service.getAllEmployees();
+        List<Employee> listEmployees = service.getAllEmployees();
 
         mv.addObject("employees", listEmployees);
         return mv;

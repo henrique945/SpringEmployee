@@ -1,12 +1,13 @@
 package com.example.employee.services;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.example.employee.Models.Employee;
 import com.example.employee.repository.EmployeeRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 /**
  * Employee service
@@ -25,14 +26,19 @@ public class EmployeeService {
         if(name.isEmpty() || lastName.isEmpty() || sector.isEmpty() || salary == 0){
             return false;
         }
-        employeeRepository.createEmployee(name, sector, lastName, salary);
+
+        List<Employee> auxEmployeeList = employeeRepository.findAll();
+
+        Employee auxEmployee = new Employee( auxEmployeeList.size() + 1, name, sector, lastName, salary);
+        employeeRepository.save(auxEmployee);
+        
         return true;
     }
 
     /**
      * Busca e retorna todos os funcionários
      */
-    public ArrayList<Employee> getAllEmployees(){
-        return employeeRepository.getAllEmployees();
+    public List<Employee> getAllEmployees(){
+        return employeeRepository.findAll();
     }
 }
